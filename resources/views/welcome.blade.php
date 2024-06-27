@@ -13,16 +13,18 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('templates/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('templates/css/sb-admin-2.min.css') }}" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
         /* Custom styling for date range picker */
@@ -30,17 +32,19 @@
             display: flex;
             justify-content: center;
         }
-    
+
         .input-daterange .form-control {
             width: 150px;
             text-align: center;
         }
-    
-        .input-group-prepend, .input-group-append {
+
+        .input-group-prepend,
+        .input-group-append {
             height: auto;
         }
-    
-        .input-group-prepend, .input-group-append .input-group-text {
+
+        .input-group-prepend,
+        .input-group-append .input-group-text {
             background-color: #e9ecef;
             border-color: #ced4da;
         }
@@ -63,202 +67,7 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
 
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
 
                 </nav>
                 <!-- End of Topbar -->
@@ -269,242 +78,686 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#importModal">
+                            <i class="fas fa-download fa-sm text-white-50"></i> Import CSV
+                        </a>
                     </div>
-
-                    
 
                     <div class="mb-3">
                         <div>
                             <h5>Filter : </h5>
-                            <form>
-                                <div class="form-row align-items-center">
-                                    <div class="col-auto my-1">
-                                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                            <option disabled selected>Periode</option>
-                                            <option value="month">Bulan</option>
-                                            <option value="year">Tahun</option>
-                                            <option value="date">Pilih Rentang Tanggal</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-auto my-1" id="additionalDropdown" style="display: none;">
-                                        <label class="mr-sm-2 sr-only" for="additionalSelect">Additional Select</label>
-                                        <select class="custom-select mr-sm-2" id="additionalSelect">
-                                            <option disabled selected>Select Option</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-auto my-1" id="dateRangeDropdown" style="display: none;">
-                                        <label class="mr-sm-2 sr-only" for="dateRangePicker">Select Date Range:</label>
-                                        <div class="input-daterange input-group" id="dateRangePicker">
-                                            <input type="text" class="form-control" name="start" />
-                                            <div class="input-group-prepend"><span class="input-group-text">to</span></div>
-                                            <input type="text" class="form-control" name="end" />
-                                        </div>
-                                    </div>
-                                    <div class="col-auto my-1">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
+                            <label for="graduation-year-select">Select Graduation Year:</label>
+                            <select id="graduation-year-select">
+                                <option value="All" {{ $selectedGraduationYear == 'All' ? 'selected' : '' }}>All</option>
+                                @foreach($graduationYears as $year)
+                                <option value="{{ $year }}" {{ $year == $selectedGraduationYear ? 'selected' : '' }}>{{ $year }}</option>
+                                @endforeach
+                            </select>
+
+                            <label for="study-program-select">Select Study Program:</label>
+                            <select id="study-program-select">
+                                <option value="All" {{ 'All' == $selectedStudyProgram ? 'selected' : '' }}>All</option>
+                                @foreach($studyPrograms as $program)
+                                <option value="{{ $program }}" {{ $program == $selectedStudyProgram ? 'selected' : '' }}>{{ $program }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-                        <!-- Projects Card -->
-                        <div class="col-lg-8 mb-4">
-                            <div class="card shadow">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Server Migration -->
-                                    <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <!-- Sales Tracking -->
-                                    <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <!-- Customer Database -->
-                                    <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 60%" aria-valuenow="60"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <!-- Payout Details -->
-                                    <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <!-- Account Setup -->
-                                    <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100"
-                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Earnings and Tasks Cards -->
-                        <div class="col-lg-4 mb-4">
-                            <!-- Earnings (Monthly) Card -->
-                            <div class="card border-left-primary shadow mb-5">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Earnings (Annual) Card -->
-                            <div class="card border-left-success shadow mb-5">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Pending Requests Card -->
-                            <div class="card border-left-warning shadow mb-5">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
+                    <!-- Earnings and Tasks Cards -->
+                    <!-- Earnings (Monthly) Card -->
+                    <div class="card border-left-primary shadow mb-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">TIF</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $getTIF}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    
-
-                    <!-- Content Row -->
-
-                    <!-- Project Card Example -->
-                    
-
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
-                                    </div>
+                    <!-- Earnings (Annual) Card -->
+                    <div class="card border-left-success shadow mb-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">MIF</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $getMIF }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Content Row -->
-                    <div class="row">
+                    <!-- Pending Requests Card -->
+                    <div class="card border-left-warning shadow mb-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">TKK</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $getTKK }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="row">
                         <!-- Content Column -->
                         <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Status Alumni Saat ini</h6>
+                                        <button class="btn btn-primary" id="showStatusChart" data-toggle="modal" data-target="#statusChartModal">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="statusChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Alumni Telah Mendapat Pekerjaan Sebelum Lulus</h6>
+                                        <button class="btn btn-primary" id="showWorkBeforeGraduateChart" data-toggle="modal" data-target="#workBeforeGraduateModal">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <canvas id="workBeforeGraduateChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Alumni Mencari Pekerjaan Setelah Lulus</h6>
+                                        <button class="btn btn-primary" id="showFindWorkAfterGraduateChart" data-toggle="modal" data-target="#findWorkAfterGraduateModal">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <canvas id="findWorkAfterGraduateChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card">
+                                    <div class="card-header py-3">
+                                        <div class="justify-content-between d-flex">
+                                            <h6 class="m-0 font-weight-bold text-primary mt-2">Alumni Mencari Pekerjaan Setelah Lulus</h6>
+                                            <button class="btn btn-primary" id="showFindWorkBeforeGraduateChartModal" data-toggle="modal" data-target="#findWorkBeforeGraduateModal">Detail</button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div>
+                                            <canvas id="findWorkBeforeGraduateChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card">
+                                    <div class="card-header py-3">
+                                        <div class="justify-content-between d-flex">
+                                            <h6 class="m-0 font-weight-bold text-primary mt-2">Alumni Telah Mendapat Pekerjaan Setelah Lulus (Bulan)</h6>
+                                            <button class="btn btn-primary" id="showWorkAfterGraduateMonthChart" data-toggle="modal" data-target="#workAfterGraduateMonthModal">Detail</button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div>
+                                            <canvas id="workAfterGraduateMonthChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card">
+                                    <div class="card-header py-3">
+                                        <div class="justify-content-between d-flex">
+                                            <h6 class="m-0 font-weight-bold text-primary mt-2">Alumni Telah Mendapat Pekerjaan Sebelum Lulus (Bulan)</h6>
+                                            <button class="btn btn-primary" id="showWorkBeforeGraduateMonthChart" data-toggle="modal" data-target="#workBeforeGraduateMonthModal">Detail</button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div>
+                                            <canvas id="workBeforeGraduateMonthChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Gaji Perbulan Alumni</h6>
+                                        <button class="btn btn-primary" id="ShowSalaryChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="salaryChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Tingkat Pendidikan Yang Tepat Pada Tempat Kerja</h6>
+                                        <button class="btn btn-primary" id="ShowWorkGradeAppropriateChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="workGradeAppropriateChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Jenis Perusahaan</h6>
+                                        <button class="btn btn-primary" id="ShowInstanceTypeChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="instanceTypeChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Jabatan Jika Menjadi Wiraswasta</h6>
+                                        <button class="btn btn-primary" id="ShowIfSelfEmployedChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="ifSelfEmployedChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Keterikatan Jurusan Dengan Pekerjaan</h6>
+                                        <button class="btn btn-primary" id="ShowWorkCorrelationChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="workCorrelationChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Tingkatan Tempat Kerja</h6>
+                                        <button class="btn btn-primary" id="ShowWorkGradeChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="workGradeChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Content Column -->
+
+                        <!-- <div class="col-lg-6 mb-4">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
+                                    <div class="">
+                                        <canvas id="workCorrelationChart"></canvas>
                                     </div>
-                                    <hr>
-                                    Styling for the bar chart can be found in the
-                                    <code>/js/demo/chart-bar-demo.js</code> file.
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Sumber Biaya Pendidikan Lanjut</h6>
+                                        <button class="btn btn-primary" id="ShowFurtherStudyCostChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="furtherStudyCostChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Banyaknya Alumni Yang Mengambil Pendidikan Lanjut</h6>
+                                        <button class="btn btn-primary" id="ShowCountFurtherStudyChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="countFurtherStudyChart"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Alumni yang mendapat pekerjaan sebelum lulus dan hubungannya dengan program studi</h6>
+                                        <button class="btn btn-primary" id="ShowGotJobBeforeGraduateAndCorrelatedChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="gotJobBeforeGraduateAndCorrelatedChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Etika 1</h6>
+                                        <button class="btn btn-primary" id="ShowEthicsChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="ethicsChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Keahlian berdasarkan bidang ilmu</h6>
+                                        <button class="btn btn-primary" id="ShowSkillChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="skillChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Bahasa Inggris</h6>
+                                        <button class="btn btn-primary" id="ShowEnglishChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="englishChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Penggunaan Teknologi Informasi</h6>
+                                        <button class="btn btn-primary" id="ShowTiUsageChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="tiUsageChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Komunikasi</h6>
+                                        <button class="btn btn-primary" id="ShowCommunicationChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="communicationChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Kerja Sama Tim</h6>
+                                        <button class="btn btn-primary" id="ShowTeamWorkChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="teamWorkChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Pengembangan Diri</h6>
+                                        <button class="btn btn-primary" id="ShowSelfImprovementChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="selfImprovementChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id=""></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Etika 2</h6>
+                                        <button class="btn btn-primary" id="ShowEthics2Chart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="ethics2Chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Keahlian berdasarkan bidang ilmu 2</h6>
+                                        <button class="btn btn-primary" id="ShowSkill2Chart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="skill2Chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Bahasa Inggris 2</h6>
+                                        <button class="btn btn-primary" id="ShowEnglish2Chart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="english2Chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Penggunaan Teknologi Informasi 2</h6>
+                                        <button class="btn btn-primary" id="ShowTiUsage2Chart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="tiUsage2Chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Komunikasi 2</h6>
+                                        <button class="btn btn-primary" id="ShowCommunication2Chart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="communication2Chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Kerja Sama Tim 2</h6>
+                                        <button class="btn btn-primary" id="ShowTeamWork2Chart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="teamWork2Chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Pengembangan Diri 2</h6>
+                                        <button class="btn btn-primary" id="ShowSelfImprovement2Chart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="selfImprovement2Chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Perkuliahan</h6>
+                                        <button class="btn btn-primary" id="ShowLecturesChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="lecturesChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Diskusi</h6>
+                                        <button class="btn btn-primary" id="ShowDiscussionChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="discussionChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Demonstrasi</h6>
+                                        <button class="btn btn-primary" id="ShowDemonstrationChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="demonstrationChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Partisipasi dalam proyek riset</h6>
+                                        <button class="btn btn-primary" id="ShowResearchProjectParticipationChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="researchProjectParticipationChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Magang</h6>
+                                        <button class="btn btn-primary" id="ShowInternshipChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="internshipChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Praktikum</h6>
+                                        <button class="btn btn-primary" id="ShowPracticeChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="practiceChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
 
+                        <div class="col-lg-6 mb-4">
+                            <div class="card shadow mb-4 w-full">
+                                <div class="card-header py-3">
+                                    <div class="justify-content-between d-flex">
+                                        <h6 class="m-0 font-weight-bold text-primary mt-2">Kerja Lapang</h6>
+                                        <button class="btn btn-primary" id="ShowFieldWorkChart">Detail</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <canvas id="fieldWorkChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -523,7 +776,7 @@
 
         </div>
         <!-- End of Content Wrapper -->
-
+        @include('modals.modal')
     </div>
     <!-- End of Page Wrapper -->
 
@@ -533,8 +786,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -566,78 +818,147 @@
     <script src="{{ asset('templates/vendor/chart.js/Chart.min.js') }}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{ asset('templates/js/demo/chart-area-demo.js') }}"></script>
+    <!-- <script src="{{ asset('templates/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('templates/js/demo/chart-pie-demo.js') }}"></script>
-    <script src="{{ asset('templates/js/demo/chart-bar-demo.js') }}"></script>
+    <script src="{{ asset('templates/js/demo/chart-bar-demo.js') }}"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Bootstrap Datepicker JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const mainSelect = document.getElementById("inlineFormCustomSelect");
-        const additionalDropdown = document.getElementById("additionalDropdown");
-        const additionalSelect = document.getElementById("additionalSelect");
-        const dateRangeDropdown = document.getElementById("dateRangeDropdown");
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Datepicker JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
-        mainSelect.addEventListener("change", function() {
-            if (mainSelect.value === "month") {
-                // Show additional dropdown and hide date range dropdown
-                additionalDropdown.style.display = "block";
-                dateRangeDropdown.style.display = "none";
+    <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="importModalLabel">Import CSV</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="csvForm" action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="csvFile">Pilih CSV File</label>
+                            <div class="form-control">
+                                <input type="file" class="form-control-file" id="csv_file" name="csv_file" accept=".csv">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Import</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                // Populate options for additional dropdown
-                additionalSelect.innerHTML = `
-                    <option value="january">Januari</option>
-                    <option value="february">Februari</option>
-                    <option value="march">Maret</option>
-                    <option value="march">April</option>
-                    <option value="march">Mei</option>
-                    <option value="march">Juni</option>
-                    <option value="march">Juli</option>
-                    <option value="march">Agustus</option>
-                    <option value="march">Sepetember</option>
-                    <option value="march">Oktober</option>
-                    <option value="march">November</option>
-                    <option value="march">Desember</option>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-                    <!-- Add more options here if needed -->
-                `;
-            } else if (mainSelect.value === "year") {
-                // Show additional dropdown and hide date range dropdown
-                additionalDropdown.style.display = "block";
-                dateRangeDropdown.style.display = "none";
 
-                // Populate options for additional dropdown
-                additionalSelect.innerHTML = `
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <!-- Add more options here if needed -->
-                `;
-            } else if (mainSelect.value === "date") {
-                // Hide additional dropdown and show date range dropdown
-                additionalDropdown.style.display = "none";
-                dateRangeDropdown.style.display = "block";
+    <!-- Chart -->
+    <script>
+        // Pass PHP data to JavaScript
+        window.statusData = <?php echo json_encode($getStatusNow); ?>;
+        window.workBeforeGraduateData = <?php echo json_encode($getWorkBeforeGraduate); ?>;
+        window.workBeforeGraduateMonthData = <?php echo json_encode($getWorkBeforeGraduateMonth); ?>;
+        window.workAfterGraduateMonthData = <?php echo json_encode($getWorkAfterGraduateMonth); ?>;
+        window.furtherStudyCostData = <?php echo json_encode($getFurtherStudyCost); ?>;
+        window.JobBeforeGraduateAndCorrelatedData = <?php echo json_encode($getGotJobBeforeGraduateAndCorrelated); ?>;
+        window.salaryData = <?php echo json_encode($getSalary); ?>;
+        window.ifSelfEmployedData = <?php echo json_encode($getIfSelfEmployeed); ?>;
+        window.instanceTypeData = <?php echo json_encode($getInstanceType); ?>;
+        window.countFurtherStudyData = <?php echo json_encode($getCountFurtherStudy); ?>;
+        window.findWorkAfterGraduateData = <?php echo json_encode($getFindWorkAfterGraduate); ?>;
+        window.workGradeData = <?php echo json_encode($getWorkGrade); ?>;
+        window.workCorrelationData = <?php echo json_encode($getWorkCorrelation); ?>;
+        window.workGradeAppropriateData = <?php echo json_encode($getWorkGradeAppropriate); ?>;
+        window.findWorkBeforeGraduateData = <?php echo json_encode($getFindWorkBeforeGraduate); ?>;
+        window.workingPlaceProvinceData = <?php echo json_encode($getWorkingPlaceProvince); ?>;
+        window.workingPlaceRegencyData = <?php echo json_encode($getWorkingPlaceRegency); ?>;
+        window.ethics1Data = <?php echo json_encode($getEthics); ?>;
+        window.skill1Data = <?php echo json_encode($getSkill); ?>;
+        window.english1Data = <?php echo json_encode($getEnglish); ?>;
+        window.tiUsage1Data = <?php echo json_encode($getTIUsage); ?>;
+        window.communication1Data = <?php echo json_encode($getCommunication); ?>;
+        window.teamWork1Data = <?php echo json_encode($getTeamWork); ?>;
+        window.selfImprovement1Data = <?php echo json_encode($getSelfImprovement); ?>;
+        window.ethics2Data = <?php echo json_encode($getEthics2); ?>;
+        window.skill2Data = <?php echo json_encode($getSkill2); ?>;
+        window.english2Data = <?php echo json_encode($getEnglish2); ?>;
+        window.tiUsage2Data = <?php echo json_encode($getTIUsage2); ?>;
+        window.communication2Data = <?php echo json_encode($getCommunication2); ?>;
+        window.teamWork2Data = <?php echo json_encode($getTeamWork2); ?>;
+        window.selfImprovement2Data = <?php echo json_encode($getSelfImprovement2); ?>;
 
-                // Initialize datepicker
-                $('#dateRangePicker').datepicker({
-                    autoclose: true,
-                    format: 'yyyy-mm-dd',
-                    // Enable range selection
-                    inputs: $('.input-daterange input'),
-                    clearBtn: true
-                });
-            } else {
-                // Hide both additional dropdown and date range dropdown if neither month nor year nor date is selected
-                additionalDropdown.style.display = "none";
-                dateRangeDropdown.style.display = "none";
-            }
-        });
-    });
-</script>
+        window.selfImprovement2Data = <?php echo json_encode($getSelfImprovement2); ?>;
+        window.selfImprovement2Data = <?php echo json_encode($getSelfImprovement2); ?>;
+        window.selfImprovement2Data = <?php echo json_encode($getSelfImprovement2); ?>;
+        window.selfImprovement2Data = <?php echo json_encode($getSelfImprovement2); ?>;
+        window.selfImprovement2Data = <?php echo json_encode($getSelfImprovement2); ?>;
+        window.selfImprovement2Data = <?php echo json_encode($getSelfImprovement2); ?>;
+        window.selfImprovement2Data = <?php echo json_encode($getSelfImprovement2); ?>;
+
+        window.Data = <?php echo json_encode($getLectures); ?>;
+        window.Data = <?php echo json_encode($getDemonstration); ?>;
+        window.Data = <?php echo json_encode($getResearchProjectParticipation); ?>;
+        window.Data = <?php echo json_encode($getInternship); ?>;
+        window.Data = <?php echo json_encode($getPractice); ?>;
+        window.Data = <?php echo json_encode($getFieldWork); ?>;
+        window.Data = <?php echo json_encode($getDiscussion); ?>;
+
+
+        var selectedGraduationYear = '{{ $selectedGraduationYear }}';
+        var selectedProgram = '{{ $selectedStudyProgram }}';
+    </script>
+    <script src="{{ asset('chart/statusnow.js') }}"></script>
+    <script src="{{ asset('chart/workbeforegraduate.js') }}"></script>
+    <script src="{{ asset('chart/countfurtherstudy.js') }}"></script>
+    <script src="{{ asset('chart/findworkbeforegraduate.js') }}"></script>
+    <script src="{{ asset('chart/findworkaftergraduate.js') }}"></script>
+    <script src="{{ asset('chart/furtherstudycost.js') }}"></script>
+    <script src="{{ asset('chart/getjobbeforegraduateandcorrelated.js') }}"></script>
+    <script src="{{ asset('chart/getsalary.js') }}"></script>
+    <script src="{{ asset('chart/ifselfemployeed.js') }}"></script>
+    <script src="{{ asset('chart/instancetype.js') }}"></script>
+    <script src="{{ asset('chart/workaftergraduatemonth.js') }}"></script>
+    <script src="{{ asset('chart/workbeforegraduatemonth.js') }}"></script>
+    <script src="{{ asset('chart/workcorrelation.js') }}"></script>
+    <script src="{{ asset('chart/workgrade.js') }}"></script>
+    <script src="{{ asset('chart/workgradeappropriate.js') }}"></script>
+    <script src="{{ asset('chart/workingplaceprovince.js') }}"></script>
+    <script src="{{ asset('chart/workingplaceregency.js') }}"></script>
+    <script src="{{ asset('chart/ethics1.js') }}"></script>
+    <script src="{{ asset('chart/skill1.js') }}"></script>
+    <script src="{{ asset('chart/english1.js') }}"></script>
+    <script src="{{ asset('chart/tiusage1.js') }}"></script>
+    <script src="{{ asset('chart/communication1.js') }}"></script>
+    <script src="{{ asset('chart/teamwork1.js') }}"></script>
+    <script src="{{ asset('chart/selfimprovement1.js') }}"></script>
+
+    <script src="{{ asset('chart/ethics2.js') }}"></script>
+    <script src="{{ asset('chart/skill2.js') }}"></script>
+    <script src="{{ asset('chart/english2.js') }}"></script>
+    <script src="{{ asset('chart/tiusage2.js') }}"></script>
+    <script src="{{ asset('chart/communication2.js') }}"></script>
+    <script src="{{ asset('chart/teamwork2.js') }}"></script>
+    <script src="{{ asset('chart/selfimprovement2.js') }}"></script>
+
+    <script src="{{ asset('chart/lectures.js') }}"></script>
+    <script src="{{ asset('chart/discussion.js') }}"></script>
+    <script src="{{ asset('chart/demonstration.js') }}"></script>
+    <script src="{{ asset('chart/researchprojectparticipation.js') }}"></script>
+    <script src="{{ asset('chart/internship.js') }}"></script>
+    <script src="{{ asset('chart/practice.js') }}"></script>
+    <script src="{{ asset('chart/fieldwork.js') }}"></script>
+
+
+
 
 </body>
 
